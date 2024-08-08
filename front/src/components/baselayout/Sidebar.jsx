@@ -1,6 +1,8 @@
 import React from 'react';
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import { Icons } from '../../assets/icons';
 import { MdOutlineClose } from 'react-icons/md';
+import { MENU_LISTS, routes } from '../../constants/menuLists';
 
 const Sidebar = () => {
   return (
@@ -15,6 +17,31 @@ const Sidebar = () => {
         <button className="bg-white text-black p-[0.125rem] rounded-sm hover:bg-gray-300">
           <MdOutlineClose />
         </button>
+      </div>
+
+      <div className="sidebar-body">
+        <BrowserRouter>
+          <Routes>
+            {routes.map((route, idx) => (
+              <Route key={idx} path={route.path} element={route.element} />
+            ))}
+          </Routes>
+
+          <div className="sidebar-menu">
+            <ul className="menu-lists">
+              {MENU_LISTS.map((menu, idx) => (
+                <li key={idx} className="menu-item">
+                  <Link to={routes[idx].path}>
+                    <span>
+                      <img src={menu.icon} alt={menu.alt} />
+                    </span>
+                    <span>{menu.title}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </BrowserRouter>
       </div>
     </div>
   );
