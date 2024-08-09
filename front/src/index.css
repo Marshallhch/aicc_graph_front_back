@@ -20,4 +20,4 @@ body{font-family:"Public Sans", sans-serif;}
 }
 
 /* Common Cell Blocks Style */
-.block-cell{background:rgb(3,7,18); box-shadow: 0 0 0.25rem rgba(165, 163, 174, 0.3); border-radius:6px; padding:20px;}
+.block-cell{background:rgb(3,7,18); box-shadow: 0 0 0.25rem rgba(165, 163, 174, 0.3); border-radius:6px; padding:20px; height:100%;}

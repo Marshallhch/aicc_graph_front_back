@@ -30,4 +30,22 @@ app.get('/revenue', async (req, res) => {
   }
 });
 
+app.get('/sales_map', async (req, res) => {
+  try {
+    const result = await database.pool.query('SELECT * FROM sales_map');
+    return res.status(200).json(result.rows);
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
+
+app.get('/volume_services', async (req, res) => {
+  try {
+    const result = await database.pool.query('SELECT * FROM volume_services');
+    return res.status(200).json(result.rows);
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
+
 app.listen(PORT, () => console.log(`server is running on port ${PORT}`)); // 서버 실행
